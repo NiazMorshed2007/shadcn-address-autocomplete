@@ -6,7 +6,7 @@ import {
 	Command,
 	CommandEmpty,
 	CommandGroup,
-	CommandList
+	CommandList,
 } from "@/components/ui/command";
 import { Input } from "@/components/ui/input";
 import { useDebounce } from "@/hooks/use-debounce";
@@ -55,7 +55,10 @@ export default function AddressAutoComplete(props: AddressAutoCompleteProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const { data, isLoading } = useSWR(
-		selectedPlaceId === "" ? null : `/api/address/place?placeId=${selectedPlaceId}`,
+		// For real use case: /api/address/place?placeId=${selectedPlaceId}
+		selectedPlaceId === ""
+			? null
+			: `/api/address/mock-place?placeId=${selectedPlaceId}`,
 		fetcher,
 		{
 			revalidateOnFocus: false,
@@ -63,6 +66,8 @@ export default function AddressAutoComplete(props: AddressAutoCompleteProps) {
 	);
 
 	const adrAddress = data?.data.adrAddress;
+	console.log(adrAddress);
+	console.log(data?.data.address);
 
 	useEffect(() => {
 		if (data?.data.address) {
@@ -168,14 +173,13 @@ function AddressAutoCompleteInput(props: CommonProps) {
 
 	const { data, isLoading } = useSWR(
 		// For real use case: /api/address/autocomplete?input=${debouncedSearchInput}
-		`/api/address/mock?input=${debouncedSearchInput}`,
+		`/api/address/mock-autocomplete?input=${debouncedSearchInput}`,
 		fetcher,
 	);
 
 	const predictions = data?.data || [];
 
 	console.log(JSON.stringify(predictions));
-
 
 	return (
 		<Command
@@ -212,34 +216,40 @@ function AddressAutoCompleteInput(props: CommonProps) {
 									</div>
 								) : (
 									<>
-										{predictions.map((prediction: {
-											placePrediction: {
-												placeId: string;
-												place: string;
-												text: { text: string };
-											};
-										}) => (
-											<CommandPrimitive.Item
-												value={prediction.placePrediction.text.text}
-												onSelect={() => {
-													setSearchInput("");
-													setSelectedPlaceId(prediction.placePrediction.place);
-													setIsOpenDialog(true);
-												}}
-												className="flex select-text flex-col cursor-pointer gap-0.5 h-max p-2 px-3 rounded-md aria-selected:bg-accent aria-selected:text-accent-foreground hover:bg-accent hover:text-accent-foreground items-start"
-												key={prediction.placePrediction.placeId}
-												onMouseDown={(e) => e.preventDefault()}
-											>
-												{prediction.placePrediction.text.text}
-											</CommandPrimitive.Item>
-										))}
+										{predictions.map(
+											(prediction: {
+												placePrediction: {
+													placeId: string;
+													place: string;
+													text: { text: string };
+												};
+											}) => (
+												<CommandPrimitive.Item
+													value={prediction.placePrediction.text.text}
+													onSelect={() => {
+														setSearchInput("");
+														setSelectedPlaceId(
+															prediction.placePrediction.place,
+														);
+														setIsOpenDialog(true);
+													}}
+													className="flex select-text flex-col cursor-pointer gap-0.5 h-max p-2 px-3 rounded-md aria-selected:bg-accent aria-selected:text-accent-foreground hover:bg-accent hover:text-accent-foreground items-start"
+													key={prediction.placePrediction.placeId}
+													onMouseDown={(e) => e.preventDefault()}
+												>
+													{prediction.placePrediction.text.text}
+												</CommandPrimitive.Item>
+											),
+										)}
 									</>
 								)}
 
 								<CommandEmpty>
 									{!isLoading && predictions.length === 0 && (
 										<div className="py-4 flex items-center justify-center">
-											{searchInput === "" ? "Please enter an address" : "No address found"}
+											{searchInput === ""
+												? "Please enter an address"
+												: "No address found"}
 										</div>
 									)}
 								</CommandEmpty>

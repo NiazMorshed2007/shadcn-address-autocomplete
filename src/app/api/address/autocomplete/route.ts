@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 		"route",
 		"street_number",
 		"landmark",
-	]
+	];
 
 	try {
 		const response = await fetch(url, {

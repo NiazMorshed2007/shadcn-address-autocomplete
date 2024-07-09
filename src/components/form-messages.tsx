@@ -36,15 +36,15 @@ export function FormMessages({
 			{isReactNode
 				? messages
 				: (messages as string[]).map((value, i) => (
-					<div key={i.toString()} className="flex gap-2">
-						{type === "error" ? (
-							<XCircle className="relative top-0.5 size-4 shrink-0" />
-						) : (
-							<CheckCircle2 className="relative top-0.5 size-4 shrink-0" />
-						)}
-						<p>{value}</p>
-					</div>
-				))}
+						<div key={i.toString()} className="flex gap-2">
+							{type === "error" ? (
+								<XCircle className="relative top-0.5 size-4 shrink-0" />
+							) : (
+								<CheckCircle2 className="relative top-0.5 size-4 shrink-0" />
+							)}
+							<p>{value}</p>
+						</div>
+					))}
 		</div>
 	);
 }

@@ -148,7 +148,9 @@ export default function AddressDialog(
 
 		// Add address2 just after address1 if provided
 		if (addressComponents.address2) {
-			const address1Regex = new RegExp(`${addressComponents["street-address"]}`);
+			const address1Regex = new RegExp(
+				`${addressComponents["street-address"]}`,
+			);
 			updatedAddressString = updatedAddressString.replace(
 				address1Regex,
 				`${addressComponents["street-address"]}, ${addressComponents.address2}`,
@@ -270,7 +272,9 @@ export default function AddressDialog(
 							<div className="space-y-0.5">
 								<Label htmlFor="address2">
 									Address line 2{" "}
-									<span className="text-xs text-secondary-foreground">(Optional)</span>
+									<span className="text-xs text-secondary-foreground">
+										(Optional)
+									</span>
 								</Label>
 								<Input
 									value={address2}
