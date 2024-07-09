@@ -9,6 +9,11 @@ const fontSans = FontSans({
   variable: "--font-sans",
 })
 
+export const metadata = {
+  title: "Shadcn Address Autocomplete",
+  description: "An address autocomplete component using Google Places API and shadcn components.",
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
