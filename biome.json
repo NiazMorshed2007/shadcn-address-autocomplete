@@ -1,0 +1,25 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"useBlockStatements": "error"
+			},
+			"suspicious": {
+				"noConsoleLog": "error",
+				"noArrayIndexKey": "off"
+			},
+			"correctness": {
+				"noUnusedVariables": "error"
+			}
+		}
+	},
+	"formatter": {
+	
+	}
+}
