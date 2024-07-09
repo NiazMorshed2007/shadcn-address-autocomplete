@@ -177,8 +177,6 @@ function AddressAutoCompleteInput(props: CommonProps) {
 
 	const predictions = data?.data || [];
 
-	console.log(JSON.stringify(predictions));
-
 	return (
 		<Command
 			shouldFilter={false}
