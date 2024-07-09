@@ -66,8 +66,6 @@ export default function AddressAutoComplete(props: AddressAutoCompleteProps) {
 	);
 
 	const adrAddress = data?.data.adrAddress;
-	console.log(adrAddress);
-	console.log(data?.data.address);
 
 	useEffect(() => {
 		if (data?.data.address) {

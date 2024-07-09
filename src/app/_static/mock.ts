@@ -86,7 +86,7 @@ export const mockAddresses = [
 export const mockPlaces = [
 	{
 		placeId:
-			"Eh01dGggQXZlbnVlLCBOZXcgWW9yaywgTlksIFVTQSIuKiwKFAoSCfVHOJ2iWMKJEUp3QQG6-01WEhQKEgk7CD_TpU_CiRFi_nfhBo8LyA",
+			"places/Eh01dGggQXZlbnVlLCBOZXcgWW9yaywgTlksIFVTQSIuKiwKFAoSCfVHOJ2iWMKJEUp3QQG6-01WEhQKEgk7CD_TpU_CiRFi_nfhBo8LyA",
 		adrAddress: `<span class="street-address">5th Ave</span>, <span class="locality">New York</span>, <span class="region">NY</span>, <span class="country-name">USA</span>`,
 		address: {
 			address1: "5th Ave",
@@ -102,7 +102,7 @@ export const mockPlaces = [
 	},
 	{
 		placeId:
-			"EiE1dGggQXZlbnVlIFNvdXRoLCBOYXBsZXMsIEZMLCBVU0EiLiosChQKEgn700PbneHaiBH2-htwhluvVRIUChIJrdfCc5vh2ogRqpos1xhTP2c",
+			"places/EiE1dGggQXZlbnVlIFNvdXRoLCBOYXBsZXMsIEZMLCBVU0EiLiosChQKEgn700PbneHaiBH2-htwhluvVRIUChIJrdfCc5vh2ogRqpos1xhTP2c",
 		adrAddress: `<span class="street-address">5th Ave S</span>, <span class="locality">Naples</span>, <span class="region">FL</span> <span class="postal-code">34102</span>, <span class="country-name">USA</span>`,
 		address: {
 			address1: "5th Ave S",
@@ -117,7 +117,7 @@ export const mockPlaces = [
 		},
 	},
 	{
-		placeId: "ChIJUUEWW_JZwokR9gFMSAdcn9k",
+		placeId: "places/ChIJUUEWW_JZwokR9gFMSAdcn9k",
 		adrAddress: `<span class="street-address">50 Hudson Yards</span>, <span class="locality">New York</span>, <span class="region">NY</span> <span class="postal-code">10001</span>, <span class="country-name">USA</span>`,
 		address: {
 			address1: "50 Hudson Yards",
@@ -132,7 +132,7 @@ export const mockPlaces = [
 		},
 	},
 	{
-		placeId: "ChIJm1IklZlw44kRgK8tf3E35xA",
+		placeId: "places/ChIJm1IklZlw44kRgK8tf3E35xA",
 		adrAddress: `<span class="street-address">55 Fruit St</span>, <span class="locality">Boston</span>, <span class="region">MA</span> <span class="postal-code">02114</span>, <span class="country-name">USA</span>`,
 		address: {
 			address1: "55 Fruit St",
@@ -147,7 +147,7 @@ export const mockPlaces = [
 		},
 	},
 	{
-		placeId: "ChIJ9wQMjsNYwokRs0JnymlXYG4",
+		placeId: "places/ChIJ9wQMjsNYwokRs0JnymlXYG4",
 		adrAddress: `<span class="street-address">525 E 68th St</span>, <span class="locality">New York</span>, <span class="region">NY</span> <span class="postal-code">10065</span>, <span class="country-name">USA</span>`,
 		address: {
 			address1: "525 E 68th St",

@@ -9,5 +9,11 @@ export async function GET(req: NextRequest) {
 	const placeId = searchParams.get("placeId");
 	const mockPlace = mockPlaces.find((place) => place.placeId === placeId);
 
-	return NextResponse.json({ data: mockPlace, error: null });
+	return NextResponse.json({
+		data: {
+			adrAddress: mockPlace?.adrAddress,
+			address: mockPlace?.address,
+		},
+		error: null,
+	});
 }
